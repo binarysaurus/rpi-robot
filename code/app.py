@@ -1,4 +1,4 @@
-from distutils import *
+from ast import literal_eval
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21, GPIO.OUT)
@@ -10,8 +10,8 @@ GPIO.setwarnings(False)
 def main():
     val = input('arg: ')
     while (val != 'q'):
-        GPIO.output(21, bool(distutils.util.strtobool(val)))
-        GPIO.output(20, not bool(distutils.util.strtobool(val)))
+        GPIO.output(21, bool(literal_eval(val)))
+        GPIO.output(20, not bool(literal_eval(val)))
         val = input('arg: ')
     #GPIO.output(20, 1)
 
