@@ -7,7 +7,7 @@ GPIO.setwarnings(False)
 
 motor1f = 8
 motor1b = 7
-q = quit()
+ 
 GPIO.setup(motor1f, GPIO.OUT)
 GPIO.setup(motor1b, GPIO.OUT)
 
