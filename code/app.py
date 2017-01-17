@@ -17,6 +17,7 @@ GPIO.setup(motor1b, GPIO.OUT)
 def main():
     val = input('arg: ')
     while (True):
+        l = literal_eval(val)
         GPIO.output(motor1f, bool(literal_eval(val)))
         GPIO.output(motor1b, not bool(literal_eval(val)))
         val = input('arg: ')
