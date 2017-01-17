@@ -15,11 +15,11 @@ GPIO.setup(motor1b, GPIO.OUT)
 
 def main():
     val = input('arg: ')
-    while (val != 'q'):
+"""    while (val != 'q'):
         GPIO.output(motor1f, bool(literal_eval(val)))
         GPIO.output(motor1b, not bool(literal_eval(val)))
         val = input('arg: ')
-
+"""
 GPIO.output(motor1f, 1)
 GPIO.output(motor1b, 0)
 time.sleep(10)
