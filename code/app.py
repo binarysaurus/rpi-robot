@@ -21,9 +21,7 @@ def main():
         GPIO.output(motor1b, not bool(literal_eval(val)))
         val = input('arg: ')
 
-GPIO.output(motor1f, 1)
-GPIO.output(motor1b, 0)
-time.sleep(10)
+GPIO.output(motor1f, 0)
 GPIO.output(motor1f, 0)
 GPIO.cleanup()
 
