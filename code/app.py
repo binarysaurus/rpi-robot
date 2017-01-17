@@ -20,10 +20,11 @@ def main():
         GPIO.output(motor1f, bool(literal_eval(val)))
         GPIO.output(motor1b, not bool(literal_eval(val)))
         val = input('arg: ')
+    GPIO.output(motor1f, 0)
+    GPIO.output(motor1f, 0)
+    GPIO.cleanup()
 
-GPIO.output(motor1f, 0)
-GPIO.output(motor1f, 0)
-GPIO.cleanup()
+
 
 
 if __name__ == "__main__":
