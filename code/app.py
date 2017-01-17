@@ -2,11 +2,11 @@ from ast import literal_eval
 import time
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-motor1f = 8
-motor1b = 7
+motor1f = 21
+motor1b = 20
 
 GPIO.setup(motor1f, GPIO.OUT)
 GPIO.setup(motor1b, GPIO.OUT)
