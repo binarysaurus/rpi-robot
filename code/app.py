@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 
-motor1f = 21
-motor1b = 20
+motor1f = 8
+motor1b = 7
 
 GPIO.setup(motor1f, GPIO.OUT)
 GPIO.setup(motor1b, GPIO.OUT)
