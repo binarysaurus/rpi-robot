@@ -9,8 +9,8 @@ GPIO.setwarnings(False)
 def main():
     val = input('arg: ')
     while (val != 'q'):
-        GPIO.output(21, bool(distutils.util.strtobool(val))
-        GPIO.output(20, !bool(distutils.util.strtobool(val))
+        GPIO.output(21, bool(distutils.util.strtobool(val)))
+        GPIO.output(20, !bool(distutils.util.strtobool(val)))
         val = input('arg: ')
     #GPIO.output(20, 1)
 
