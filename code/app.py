@@ -5,12 +5,25 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+class motor(object):
+    def __init__(self, iopin, LR):
+    	self.iopin = iopin
+    	self.LR = LR
+    	
+
+    def setdrive(self):
+
+
+
+
+
 motor1f = 21
 motor1b = 20
 
 GPIO.setup(motor1f, GPIO.OUT)
 GPIO.setup(motor1b, GPIO.OUT)
 
+motor front_left
 
 
 
