@@ -5,13 +5,24 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-class motor(object):
-    def __init__(self, iopin, LR):
-    	self.iopin = iopin
-    	self.LR = LR
+class motors(object):
+    def __init__(self, FL_pin, FR_pin, BL_pin, BR_pin):
+    	self.FL_pin = FL_pin
+    	self.FR_pin = FR_pin
+    	self.BL_pin = BL_pin
+    	self.BR_pin = BR_pin
+    	GPIO.setup(self.FL_pin, GPIO.OUT)
+    	GPIO.setup(self.FR_pin, GPIO.OUT)
+    	GPIO.setup(self.BL_pin, GPIO.OUT)
+    	GPIO.setup(self.BR_pin, GPIO.OUT)
+
+    def move(self, speed, direction):
+
+
+    def halt(self):
     	
 
-    def setdrive(self):
+
 
 
 
@@ -23,7 +34,10 @@ motor1b = 20
 GPIO.setup(motor1f, GPIO.OUT)
 GPIO.setup(motor1b, GPIO.OUT)
 
-motor front_left
+locomotion = motors(1,2,3,4)
+
+locomotion.move(speed, turnangle)
+
 
 
 
