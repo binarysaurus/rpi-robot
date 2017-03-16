@@ -25,11 +25,12 @@ class motor(object):
     		GPIO.output(self.back_pin, GPIO.HIGH)
     	self.pwm.ChangeDutyCycle(speed)
 
-    def halt(self, softstop= True):
-    	if not softstop:
-    		self.pwm.stop()
+    def halt(self, exitstop = False):
     	GPIO.output(self.for_pin, GPIO.LOW)
     	GPIO.output(self.bac_pin, GPIO.LOW)
+    	if exitstop:
+    		self.pwm.stop()
+    		GPIO.cleanup()
 
 
 """

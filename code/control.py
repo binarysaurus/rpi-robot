@@ -8,3 +8,4 @@ FL = mv.motor(2, 3, 4, 1)
 
 FL.move(60, 1)
 time.sleep(10)
+FL.halt(exitstop=True)
