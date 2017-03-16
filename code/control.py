@@ -1,10 +1,5 @@
 import move as mv
 import time
-import RPi.GPIO as GPIO
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-
 
 FL = mv.motor(2, 3, 4, 1)
 #FR = 

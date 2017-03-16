@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+
 class motor(object):
     def __init__(self, for_pin, bac_pin, speed_pin, reversed):
     	self.for_pin = for_pin
@@ -28,8 +29,8 @@ class motor(object):
     def halt(self, exitstop = False):
     	GPIO.output(self.for_pin, GPIO.LOW)
     	GPIO.output(self.bac_pin, GPIO.LOW)
-    	if exitstop:
-    		self.pwm.stop()
+    	#if exitstop:
+    		#self.pwm.stop()
     		#GPIO.cleanup()
 
 
