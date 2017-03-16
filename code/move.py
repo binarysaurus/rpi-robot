@@ -23,7 +23,7 @@ class motor(object):
     		GPIO.output(self.bac_pin, GPIO.LOW)
     	else:
     		GPIO.output(self.for_pin, GPIO.LOW)
-    		GPIO.output(self.back_pin, GPIO.HIGH)
+    		GPIO.output(self.bac_pin, GPIO.HIGH)
     	self.pwm.ChangeDutyCycle(speed)
 
     def halt(self, exitstop = False):
