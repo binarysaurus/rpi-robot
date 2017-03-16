@@ -5,7 +5,8 @@ FL = mv.motor(2, 3, 4, 1)
 #FR = 
 #BL = 
 #BR = 
-
-FL.move(60, 1)
-time.sleep(10)
+for i in range(100):
+	FL.move(i, 1)
+	time.sleep(0.7)
+	
 FL.halt(exitstop=True)
