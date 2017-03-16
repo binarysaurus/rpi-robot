@@ -30,7 +30,7 @@ class motor(object):
     	GPIO.output(self.bac_pin, GPIO.LOW)
     	if exitstop:
     		self.pwm.stop()
-    		GPIO.cleanup()
+    		#GPIO.cleanup()
 
 
 """
