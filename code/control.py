@@ -18,3 +18,6 @@ for i in range(100):
 	time.sleep(0.7)
 
 FL.halt(exitstop=True)
+FR.halt(exitstop=True)
+BL.halt(exitstop=True)
+BR.halt(exitstop=True)
