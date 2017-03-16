@@ -12,16 +12,24 @@ class motor(object):
     	GPIO.setup(self.for_pin, GPIO.OUT)
     	GPIO.setup(self.bac_pin, GPIO.OUT)
     	GPIO.setup(self.speed_pin, GPIO.OUT)
+    	self.pwm = GPIO.PWM(speed_pin, 50)
+    	self.pwm.start(50)
+    	halt(self)
 
-    def move(self, speed, direction):
-    	if reversed:
-    		direction = -direction
-    	GPIO.output(self.for_pin,)
+    def move(self, speed, direction)
+    	if direction * self.reversed >= 0:
+    		GPIO.output(self.for_pin, GPIO.HIGH)
+    		GPIO.output(self.bac_pin, GPIO.LOW)
+    	else:
+    		GPIO.output(self.for_pin, GPIO.LOW)
+    		GPIO.output(self.back_pin, GPIO.HIGH)
+    	self.pwm.ChangeDutyCycle(speed)
 
-    def halt(self):
-    	GPIO.output(self.for_pin, 0)
-    	GPIO.output(self.bac_pin, 0)
-    	GPIO.output(self.speed_pin, 0)
+    def halt(self, softstop= True):
+    	if not softstop:
+    		self.pwm.stop()
+    	GPIO.output(self.for_pin, GPIO.LOW)
+    	GPIO.output(self.bac_pin, GPIO.LOW)
 
 
 """
