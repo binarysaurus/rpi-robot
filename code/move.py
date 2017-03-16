@@ -14,7 +14,7 @@ class motor(object):
     	GPIO.setup(self.speed_pin, GPIO.OUT)
     	self.pwm = GPIO.PWM(speed_pin, 50)
     	self.pwm.start(50)
-    	halt(self)
+    	self.halt(self)
 
     def move(self, speed, direction):
     	if direction * self.reversed >= 0:
