@@ -15,6 +15,7 @@ def moveall(FL, FR, BL, BR, speed, dir):
 
 for i in range(100):
 	moveall(FL, FR, BL, BR, i, 1)
+	print("Motors operating at %d%%\n", i)
 	time.sleep(0.7)
 
 FL.halt(exitstop=True)
