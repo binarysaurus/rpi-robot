@@ -16,7 +16,7 @@ class motor(object):
     	self.pwm.start(50)
     	halt(self)
 
-    def move(self, speed, direction)
+    def move(self, speed, direction):
     	if direction * self.reversed >= 0:
     		GPIO.output(self.for_pin, GPIO.HIGH)
     		GPIO.output(self.bac_pin, GPIO.LOW)
