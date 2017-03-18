@@ -32,7 +32,7 @@ class Motor(object):
 
 def drive(fl_motor, fr_motor, bl_motor, br_motor, speed, dir, turn = 0):
     assert(abs(speed - turn) <= 100, "Duty cycle cannot exceed 100%!")
-    assert(turn + speed <= 100, "Duty cycle cannot exceed 100%!")
+    assert(abs(speed + turn) <= 100, "Duty cycle cannot exceed 100%!")
     fl_motor.move(abs(speed + turn), dir)
     fr_motor.move(abs(speed + turn), dir)
     bl_motor.move(abs(speed - turn), dir)

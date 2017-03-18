@@ -8,8 +8,8 @@ dirselect = None
 movetime = 1.0
 
 while (dirselect != 'q'):
-	dirselect = input("Direction (w,a,s,d): ")
 	motion.halt(fl_motor, fr_motor, bl_motor, br_motor)
+	dirselect = input("Direction (w,a,s,d): ")
 	if dirselect == 'w':
 		moveall(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1)
 	if dirselect == 'a':
