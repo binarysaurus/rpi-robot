@@ -32,8 +32,8 @@ class Motor(object):
 def drive(leftmotors, rightmotors, speed, dir, turn = 0):
     assert abs(speed - turn) <= 100, "Duty cycle cannot exceed 100%!"
     assert abs(speed + turn) <= 100, "Duty cycle cannot exceed 100%!"
-    left.move(abs(speed + turn), dir) for left in leftmotors
-    right.move(abs(speed - turn), dir) for right in rightmotors
+    for left in leftmotors: left.move(abs(speed + turn), dir) 
+    for right in rightmotors: right.move(abs(speed - turn), dir) 
 
 def stopdrive(motors):
     for motor in motors:
