@@ -29,7 +29,7 @@ class Motor(object):
     	GPIO.output(self.forwardpin, GPIO.LOW)
     	GPIO.output(self.backwardpin, GPIO.LOW)
 
-def drive(leftmotors, rightmotors speed, dir, turn = 0):
+def drive(leftmotors, rightmotors, speed, dir, turn = 0):
     assert abs(speed - turn) <= 100, "Duty cycle cannot exceed 100%!"
     assert abs(speed + turn) <= 100, "Duty cycle cannot exceed 100%!"
     left.move(abs(speed + turn), dir) for left in leftmotors
