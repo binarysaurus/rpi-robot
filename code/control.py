@@ -4,6 +4,7 @@ import motion
 import time
 
 def main():
+	dirselect = None
 	tspeed = input("Running speed (0 - 100): ")
 	movetime = input("Running time (sec): ")
 	while (dirselect != 'q'):
