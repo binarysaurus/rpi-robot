@@ -26,3 +26,6 @@ fl_motor = motion.Motor(fl_fp, fl_bp, fl_sp, False)
 fr_motor = motion.Motor(fr_fp, fr_bp, fr_sp, True)
 bl_motor = motion.Motor(bl_fp, bl_bp, bl_sp, False)
 br_motor = motion.Motor(br_fp, br_bp, br_sp, True)
+
+
+dirselect = None
