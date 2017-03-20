@@ -8,14 +8,14 @@ dirselect = None
 movetime = 1.0
 
 while (dirselect != 'q'):
-	motion.halt(fl_motor, fr_motor, bl_motor, br_motor)
+	motion.stopdrive(fl_motor, fr_motor, bl_motor, br_motor)
 	dirselect = input("Direction (w,a,s,d): ")
 	if dirselect == 'w':
-		moveall(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1)
+		motion.drive(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1)
 	if dirselect == 'a':
-		moveall(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1, -tspeed)
+		motion.drive(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1, -tspeed)
 	if dirselect == 's':
-		moveall(fl_motor, fr_motor, bl_motor, br_motor, tspeed, -1)
+		motion.drive(fl_motor, fr_motor, bl_motor, br_motor, tspeed, -1)
 	if dirselect == 'd':
-		moveall(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1, tspeed)
+		motion.drive(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1, tspeed)
 	time.sleep(movetime)
