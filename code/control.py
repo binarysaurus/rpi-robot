@@ -8,7 +8,7 @@ def main():
 	tspeed = int(input("Running speed (0 - 100): "))
 	movetime = int(input("Running time (sec): "))
 	while (dirselect != 'q'):
-		motion.stopdrive(fl_motor, fr_motor, bl_motor, br_motor)
+		motion.stopdrive(motors = [fl_motor, fr_motor, bl_motor, br_motor])
 		dirselect = input("Direction (w,a,s,d): ")
 		if dirselect == 'w':
 			motion.drive(fl_motor, fr_motor, bl_motor, br_motor, tspeed, 1)

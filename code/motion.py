@@ -37,8 +37,6 @@ def drive(fl_motor, fr_motor, bl_motor, br_motor, speed, dir, turn = 0):
     bl_motor.move(abs(speed + turn), dir)
     br_motor.move(abs(speed - turn), dir)
 
-def stopdrive(fl_motor, fr_motor, bl_motor, br_motor):
-    fl_motor.halt()
-    fr_motor.halt()
-    bl_motor.halt()
-    br_motor.halt()
+def stopdrive(motors):
+    for motor in motors:
+    	motor.halt()
