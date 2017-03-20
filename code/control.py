@@ -20,5 +20,5 @@ def main():
 		time.sleep(movetime)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
 	main()
