@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import motion
 
 # front Left motor GPIO pins
