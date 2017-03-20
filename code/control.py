@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from config import fl_motor, fr_motor, bl_motor, br_motor, dirselect
+from config import fl_motor, fr_motor, bl_motor, br_motor
 import motion
 import time
 
