@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+from math import sqrt
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -30,8 +31,9 @@ class Motor(object):
     	GPIO.output(self.backwardpin, GPIO.LOW)
 
 def drive(leftmotors, rightmotors, speed, turn = 0):
-    assert abs(speed - turn) <= 100, "Duty cycle cannot exceed 100%!"
-    assert abs(speed + turn) <= 100, "Duty cycle cannot exceed 100%!"
+    # Assert based on simplification of |A-B| <= C, |A+B|<=C, 
+    # bug: Assert will pass if A||B = 0 since B||A may exceed 100 independently
+    assert sqrt(abs(4*speed*turn)) <= 100, "Duty cycle cannot exceed 100%!"
     for left in leftmotors: left.move(abs(speed + turn)) 
     for right in rightmotors: right.move(abs(speed - turn)) 
 
