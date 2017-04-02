@@ -13,13 +13,13 @@ def main():
 		motion.stopdrive(motors = leftmotors + rightmotors)
 		dirselect = input("Direction (w,a,s,d): ")
 		if dirselect == 'w':
-			motion.drive(leftmotors, rightmotors, tspeed, 1)
+			motion.drive(leftmotors, rightmotors, tspeed)
 		if dirselect == 'a':
-			motion.drive(leftmotors, rightmotors, tspeed, 1, -tspeed)
+			motion.drive(leftmotors, rightmotors, tspeed, -tspeed)
 		if dirselect == 's':
-			motion.drive(leftmotors, rightmotors, tspeed, -1)
+			motion.drive(leftmotors, rightmotors, -tspeed)
 		if dirselect == 'd':
-			motion.drive(leftmotors, rightmotors, tspeed, 1, tspeed)
+			motion.drive(leftmotors, rightmotors, tspeed, tspeed)
 		time.sleep(movetime)
 
 
