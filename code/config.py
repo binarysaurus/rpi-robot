@@ -1,19 +1,19 @@
 import motion
 
 # front Left motor GPIO pins
-fl_fp = 2
-fl_bp = 3
-fl_sp = 4
+fl_fp = 5
+fl_bp = 6
+fl_sp = 13
 
 # front Right motor GPIO pins
-fr_fp = 5
-fr_bp = 6
-fr_sp = 13
+fr_fp = 10
+fr_bp = 9
+fr_sp = 11
 
 # Back Left motor GPIO pins
-bl_fp = 10
-bl_bp = 9
-bl_sp = 11
+bl_fp = 2
+bl_bp = 3
+bl_sp = 4
 
 # Back Right motor GPIO pins
 br_fp = 17
