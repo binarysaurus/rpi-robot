@@ -24,7 +24,7 @@ class Motor(object):
     	else:
     		GPIO.output(self.forwardpin, GPIO.LOW)
     		GPIO.output(self.backwardpin, GPIO.HIGH)
-    	self.pwm.ChangeDutyCycle(abs(speed))
+    	self.pwm.ChangeDutyCycle(abs(int(speed)))
 
     def halt(self):
     	GPIO.output(self.forwardpin, GPIO.LOW)
