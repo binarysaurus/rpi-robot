@@ -11,7 +11,7 @@ def main():
     rightmotors = [fr_motor, br_motor]
     dirselect = None
     tspeed = float(input("Running speed (0 - 100): "))
-    #movetime = float(input("Running time (sec): "))
+    tradius = float(input("Turn (0 to 1): "))
     movetime = 0.03
 
     stdscr = curses.initscr()
@@ -30,11 +30,11 @@ def main():
         if dirselect == ord('w'):
             motion.drive(leftmotors, rightmotors, tspeed)
         if dirselect == ord('a'):
-            motion.drive(leftmotors, rightmotors, tspeed, -1)
+            motion.drive(leftmotors, rightmotors, tspeed, -tradius)
         if dirselect == ord('s'):
             motion.drive(leftmotors, rightmotors, -tspeed)
         if dirselect == ord('d'):
-            motion.drive(leftmotors, rightmotors, tspeed, 1)
+            motion.drive(leftmotors, rightmotors, tspeed, tradius)
         
         time.sleep(movetime)
 
