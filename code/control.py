@@ -30,11 +30,11 @@ def main():
         if dirselect == ord('w'):
             motion.drive(leftmotors, rightmotors, tspeed)
         if dirselect == ord('a'):
-            motion.drive(leftmotors, rightmotors, tspeed, -tspeed)
+            motion.drive(leftmotors, rightmotors, tspeed, -1)
         if dirselect == ord('s'):
             motion.drive(leftmotors, rightmotors, -tspeed)
         if dirselect == ord('d'):
-            motion.drive(leftmotors, rightmotors, tspeed, tspeed)
+            motion.drive(leftmotors, rightmotors, tspeed, 1)
         
         time.sleep(movetime)
 
