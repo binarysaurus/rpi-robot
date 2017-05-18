@@ -16,21 +16,29 @@ class RangeFinder(object):
         GPIO.setup(self.echopin, GPIO.IN)
         time.sleep(2)
 
-    def _getdistance(self):
+    def getdistance(self):
         GPIO.output(self.trigpin, True)
         time.sleep(0.00001)
         GPIO.output(self.trigpin, False)
         
+        quits = time.time()
         while GPIO.input(self.echopin)==0:
-          pstart = time.time()
-        
-        while GPIO.input(self.echopin)==1:
-          pend = time.time()
+            pstart = time.time()
+            if pstart - quits >= 1:
+                printf("Took over a second to process!")
+                break;
 
-        self.distance = (pend - pstart) * 17150
+        quits = time.time()
+        while GPIO.input(self.echopin)==1:
+            pend = time.time()
+            if pend - quits >= 1:
+                printf("Took over a second to process!")
+                break;
+
+        return (pend - pstart) * 17150
     
-    def getdistance(self):
-        gd = threading.Thread(target=self._getdistance)
-        gd.start()
-        gd.join()
-        return self.distance
+    #def getdistance(self):
+    #    gd = threading.Thread(target=self._getdistance)
+    #    gd.start()
+    #    gd.join()
+    #    return self.distance
