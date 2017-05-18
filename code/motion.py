@@ -1,11 +1,17 @@
 import RPi.GPIO as GPIO
 from math import sqrt
+import threading
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 class Motor(object):
     def __init__(self, forwardpin, backwardpin, speedpin, invertdir = False):
+                
+        print("Initializing Motor... \n\tFORWARD: %d, BACKWARD:  %d, SPEED: %d" % 
+            (forwardpin, backwardpin, speedpin))
+
         self.forwardpin = forwardpin
         self.backwardpin = backwardpin
         self.speedpin = speedpin
@@ -35,16 +41,16 @@ class Motor(object):
         GPIO.output(self.forwardpin, GPIO.LOW)
         GPIO.output(self.backwardpin, GPIO.LOW)
 
-def drive(leftmotors, rightmotors, speed, turn = 0):
+def drive(motors, speed, turn = 0):
     # Assert based on simplification of |A-B| <= C, |A+B|<=C, 
     # bug: Assert will pass if A||B = 0 since B||A may exceed 100 independently
     #assert sqrt(abs(4*speed*turn)) <= 100, "Duty cycle cannot exceed 100%!"
 
-    for left in leftmotors: 
-        left.move(speed, turn) 
-    
-    for right in rightmotors: 
-        right.move(speed, -turn) 
+    for motor in motors: 
+        if motor.invertdir == 1:
+            motor.move(speed, turn) 
+        else:
+            motor.move(speed, -turn) 
 
 def stopdrive(motors):
     for motor in motors:
