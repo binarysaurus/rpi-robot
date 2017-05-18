@@ -35,6 +35,7 @@ def main():
             motion.drive(leftmotors, rightmotors, -tspeed)
         if dirselect == ord('d'):
             motion.drive(leftmotors, rightmotors, tspeed, tspeed)
+        
         time.sleep(movetime)
 
     curses.endwin()

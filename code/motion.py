@@ -17,14 +17,20 @@ class Motor(object):
     	self.pwm.start(50)
     	self.halt()
 
-    def move(self, speed):
-    	if speed * self.invertdir >= 0:
+    def move(self, speed, turn):
+    	assert abs(speed) <= 100, "Duty cycle cannot exceed 100%!"
+    	assert abs(turn) <= 1, "Turning range -1 to 1!"
+
+    	if turn == 0:
+    		turn = 1
+    	
+    	if turn * speed * self.invertdir >= 0:
     		GPIO.output(self.forwardpin, GPIO.HIGH)
     		GPIO.output(self.backwardpin, GPIO.LOW)
     	else:
     		GPIO.output(self.forwardpin, GPIO.LOW)
     		GPIO.output(self.backwardpin, GPIO.HIGH)
-    	self.pwm.ChangeDutyCycle(abs(int(speed)))
+    	self.pwm.ChangeDutyCycle(abs(int(speed*turn)))
 
     def halt(self):
     	GPIO.output(self.forwardpin, GPIO.LOW)
@@ -33,9 +39,13 @@ class Motor(object):
 def drive(leftmotors, rightmotors, speed, turn = 0):
     # Assert based on simplification of |A-B| <= C, |A+B|<=C, 
     # bug: Assert will pass if A||B = 0 since B||A may exceed 100 independently
-    assert sqrt(abs(4*speed*turn)) <= 100, "Duty cycle cannot exceed 100%!"
-    for left in leftmotors: left.move(speed + turn) 
-    for right in rightmotors: right.move(speed - turn) 
+    #assert sqrt(abs(4*speed*turn)) <= 100, "Duty cycle cannot exceed 100%!"
+
+    for left in leftmotors: 
+    	left.move(speed, turn) 
+    
+    for right in rightmotors: 
+    	right.move(speed, -turn) 
 
 def stopdrive(motors):
     for motor in motors:
